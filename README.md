@@ -4,6 +4,10 @@
 
 Situs penyedia film menyediakan berbagai jenis film yang sangat beragam untuk ditonton oleh para pengguna. Namun, setiap pengguna memiliki preferensi film masing-masing untuk ditonton. Dalam mencari film yang pengguna sukai memakan waktu yang cukup lama. Oleh karena itu, diperlukan sistem rekomendasi yang dapat merekomendasikan film lain yang mungkin disukai dan belum pernah ditonton oleh pengguna. Teknik collaborative filtering dapat digunakan menggunakan dataset yang ada. Ini akan memungkinkan pengguna tidak perlu repot-repot untuk mencari film yang ingin ditonton dan peningkatan jumlah penonton pada film tersebut.
 
+Referensi:
+
+Najafi, Safir. "Evaluating Prediction Accuracy for Collaborative Filtering Algorithms in Recommender" Systems. KTH Royal Institute of Technology. Tersedia: [tautan](https://kth.diva-portal.org/smash/get/diva2:927356/FULLTEXT01.pdf)
+
 ## Business Understanding
 
 ### Problem Statements
@@ -114,38 +118,46 @@ Pada kasus ini diterapkan teknik collaborative filterin untuk membuat sistem rek
 
 
 ## Evaluation
-Pada sistem rekomentasi ini, metrik yang digunakan adalah precision. Precision merupakan ... dengan rumus: 
+Pada sistem rekomentasi ini, metrik yang digunakan adalah RMSE dan precision. RMSE (Root Mean Square Error) menghitung nilai mean dari semua selisih kuadrat antara hasil benar dan hasil prediksi ratings dan kemudian menghitung akar kuadrat dari hasilnya, dapat dituliskan dengan rumus: 
 
-[gambar]
+![image](https://user-images.githubusercontent.com/76271668/153878078-492d9902-679c-4a2b-8726-471cca6fe97d.png)
+
+
+Precision merupakan perbandingan antara banyaknya rekomendasi yang relevan dengan banyaknya rekomendasi, dengan rumus: 
+
+![image](https://user-images.githubusercontent.com/76271668/153868680-287ea3c5-f149-4626-92c5-7c1129b05d8f.png)
+
+![image](https://user-images.githubusercontent.com/76271668/153876214-2dc96f3d-6db8-4d8f-9f11-ebdf4ff73c86.png)
+
 
 Hasil Rekomendasi
 ```
-Showing recommendations for users: 246
+Showing recommendations for users: 260
 ===========================
 Movies with high ratings from user
 --------------------------------
-Sense and Sensibility (1995) : Drama|Romance
-Happy Together (a.k.a. Buenos Aires Affair) (Chun gwong cha sit) (1997) : Drama|Romance
-Pride and Prejudice (1995) : Drama|Romance
-Porco Rosso (Crimson Pig) (Kurenai no buta) (1992) : Adventure|Animation|Comedy|Fantasy|Romance
-Howl's Moving Castle (Hauru no ugoku shiro) (2004) : Adventure|Animation|Fantasy|Romance
+Harold and Maude (1971) : Comedy|Drama|Romance
+Titus (1999) : Drama
+Ghost World (2001) : Comedy|Drama
+Grave of the Fireflies (Hotaru no haka) (1988) : Animation|Drama|War
+Triplets of Belleville, The (Les triplettes de Belleville) (2003) : Animation|Comedy|Fantasy
 --------------------------------
-Genres user likes: {'Drama', 'Fantasy', 'Animation', 'Comedy', 'Romance', 'Adventure'}
+Genres user likes: {'Animation', 'Comedy', 'War', 'Romance', 'Drama', 'Fantasy'}
 --------------------------------
 Top 10 movies recommendation
 --------------------------------
-Shawshank Redemption, The (1994) : Crime|Drama
-Secrets & Lies (1996) : Drama
-Princess Bride, The (1987) : Action|Adventure|Comedy|Fantasy|Romance
 Lawrence of Arabia (1962) : Adventure|Drama|War
-Apocalypse Now (1979) : Action|Drama|War
-Ran (1985) : Drama|War
 Amadeus (1984) : Drama
+Seventh Seal, The (Sjunde inseglet, Det) (1957) : Drama
+Touch of Evil (1958) : Crime|Film-Noir|Thriller
+Seven Samurai (Shichinin no samurai) (1954) : Action|Adventure|Drama
+Celebration, The (Festen) (1998) : Drama
 Guess Who's Coming to Dinner (1967) : Drama
+Battle of Algiers, The (La battaglia di Algeri) (1966) : Drama|War
 Neon Genesis Evangelion: The End of Evangelion (Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni) (1997) : Action|Animation|Drama|Fantasy|Sci-Fi
 Three Billboards Outside Ebbing, Missouri (2017) : Crime|Drama
 ```
-
+Pada hasil rekomendasi yang didapatkan terdapat 9 film rekomendasi yang memiliki genres relevan dengan user dan 1 film rekomendasi yang memiliki genres tidak relevan dengan user yaitu film Touch of Evil (1958), maka precision yang didapatkan untuk sistem rekomendasi ini adalah 90%.
 
 **---Ini adalah bagian akhir laporan---**
 
