@@ -106,10 +106,24 @@ Pada file movie.csv terdapat 5 judul film yang memiliki variable genres lebih da
  - Penyandian fitur.
 
    Variabel userId dan movieId merupakan ID yang dimiliki user dan movie, ID tersebut merupakan susunan dari bilangan. Untuk memudahkan mesin belajar dilakukan penyandian fitur.
+   
+   | | userId |	movieId |	rating |
+   | --- | --- | --- | --- |
+   | 0 |	0 |	0 |	4.0 |
+   | 1 |	0 |	2 |	4.0 |
+   | 2 |	0 |	5 |	4.0 |
+   | 3 |	0 |	43 |	5.0 |
+   | 4 |	0 |	46 |	5.0 |
+   | ... |	... |	... |	... |
+   | 100831 |	609 |	9434 |	4.0 |
+   | 100832 |	609 |	9461 |	5.0 |
+   | 100833 |	609 |	9462 |	5.0 |
+   | 100834 |	609 |	9463 |	5.0 |
+   | 100835 |	609 |	9503 |	3.0 |
 
  - Pembagian dataset.
   
-   Pembagian dataset menjadi data train dan test perlu dilakukan untuk menguji model pada data test, dengan model yang telah dilatih pada data train.
+   Pembagian dataset menjadi data train dan test perlu dilakukan untuk menguji model pada data test, dengan model yang telah dilatih pada data train. Dataset diacak terlebih dahulu menggunakan fungsi .sample() dan kemudian dibagi menjadi train dan validation dengan rasio 8:2 secara manual.
    
 
 
