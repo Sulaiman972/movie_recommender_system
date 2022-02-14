@@ -128,7 +128,18 @@ Pada file movie.csv terdapat 5 judul film yang memiliki variable genres lebih da
 
 
 ## Modeling
-Pada kasus ini diterapkan teknik collaborative filterin untuk membuat sistem rekomendasi karena dataset yang dimiliki sangat cocok untuk teknik ini, yaitu data rating dari user. Dari data rating pengguna akan diidentifikasi film -film yang mirip dan belum pernah dikunjungi oleh pengguna untuk direkomendasikan.
+Pada kasus ini diterapkan teknik _Collaborative Filtering_ untuk membuat sistem rekomendasi karena dataset yang dimiliki sangat cocok untuk teknik ini, yaitu data rating dari user. Dari data rating pengguna akan diidentifikasi film-film yang mirip dan belum pernah dikunjungi oleh pengguna untuk direkomendasikan.
+
+Setelah dilakukan training, model dievaluasi dan didapatkan hasil sebagai berikut:
+
+```
+train loss:  0.5993366241455078
+val loss:  0.6133087873458862
+train rmse:  0.19040383398532867
+val rmse:  0.2050754725933075
+```
+
+Hasil evaluasi dari train dan val memiliki nilai yang mirip sehingga dapat dikatakan bahwa mesin dapat belajar.
 
 
 ## Evaluation
