@@ -127,10 +127,13 @@ Precision merupakan perbandingan antara banyaknya rekomendasi yang relevan denga
 
 ![image](https://user-images.githubusercontent.com/76271668/153868680-287ea3c5-f149-4626-92c5-7c1129b05d8f.png)
 
-![image](https://user-images.githubusercontent.com/76271668/153876214-2dc96f3d-6db8-4d8f-9f11-ebdf4ff73c86.png)
+Hasil Training Model (RMSE)
 
+![image](https://user-images.githubusercontent.com/76271668/153881049-ce83cb67-7062-4319-8e24-9de3ad7d097d.png)
 
-Hasil Rekomendasi
+Proses training model cukup smooth dan model sedikit konvergen pada epoch sekitar 20. Dari proses ini, diperoleh nilai error akhir sebesar sekitar 0.19 dan error pada data validasi sebesar 0.20. Nilai tersebut cukup baik untuk sistem rekomendasi.
+
+Hasil Rekomendasi (Precision)
 ```
 Showing recommendations for users: 260
 ===========================
