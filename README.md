@@ -68,7 +68,7 @@ Untuk memahami data dilakukan tahap univariate exploratory data analysis.
   - title  : merupakan judul film yang dimiliki.
   - genres : merupakan genre yang dimiliki oleh film tertentu.
   
-  Terdapat 9737 film yang memiliki rating dan terdapat 5 judul memiliki genre yang berbeda.
+  Terdapat 9737 film yang memiliki genres dan terdapat 5 film memiliki genres yang berbeda atau ganda.
   ```
   Jumlah movieId:  9742
   Jumlah film:  9737
