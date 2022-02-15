@@ -12,11 +12,11 @@ Najafi, Safir. "Evaluating Prediction Accuracy for Collaborative Filtering Algor
 
 ### Problem Statements
 
-- Dengan data rating yang Anda miliki, bagaimana perusahaan dapat merekomendasikan film lain yang mungkin disukai dan belum pernah ditonton oleh pengguna? 
+- Dengan data rating yang perusahaan miliki, bagaimana perusahaan dapat merekomendasikan film lain yang mungkin disukai dan belum pernah ditonton oleh pengguna? 
 
 ### Goals
 
-- Menghasilkan sejumlah rekomendasi restoran yang sesuai dengan preferensi pengguna dan belum pernah ditonton sebelumnya dengan teknik collaborative filtering.
+- Menghasilkan sejumlah rekomendasi film yang sesuai dengan preferensi pengguna dan belum pernah ditonton sebelumnya dengan teknik _collaborative filtering_.
 
 
 ## Data Understanding
@@ -121,6 +121,18 @@ Pada file movie.csv terdapat 5 judul film yang memiliki variable genres lebih da
    | 100834 |	609 |	9463 |	5.0 |
    | 100835 |	609 |	9503 |	3.0 |
 
+ - Penentuan variabel dan normalisasi
+
+   Sebelum dilakukan pembagian dataset, variabel perlu ditentukan agar data dapat diolah oleh alogritma. Data user dan movie menjadi satu value x dan data rating menjadi value y. Pada value y dilakukan normalisasi agar data menjadi mudah diolah oleh algoritma.
+   ```python
+   # Membuat variabel x untuk mencocokkan data user dan movie menjadi satu value
+   x = encoded_rating_df[['userId', 'movieId']].values
+   
+   # Membuat variabel y untuk membuat rating dari hasil 
+   y = encoded_rating_df['rating'].apply(lambda x: (x - min_rating) / (max_rating - min_rating)).values
+
+   ```
+
  - Pembagian dataset.
   
    Pembagian dataset menjadi data train dan test perlu dilakukan untuk menguji model pada data test, dengan model yang telah dilatih pada data train. Dataset diacak terlebih dahulu menggunakan fungsi .sample() dan kemudian dibagi menjadi train dan validation dengan rasio 8:2 secara manual.
@@ -128,7 +140,7 @@ Pada file movie.csv terdapat 5 judul film yang memiliki variable genres lebih da
 
 
 ## Modeling
-Pada kasus ini diterapkan teknik _Collaborative Filtering_ untuk membuat sistem rekomendasi karena dataset yang dimiliki sangat cocok untuk teknik ini, yaitu data rating dari user. Dari data rating pengguna akan diidentifikasi film-film yang mirip dan belum pernah dikunjungi oleh pengguna untuk direkomendasikan.
+Pada kasus ini, dataset yang dimiliki adalah data rating film dari pengguna dan data film. Teknik _collaborative filtering_ dapat diterapkan untuk membuat sistem rekomendasi, untuk kasus ini, karena teknik ini membutuhkan data rating dari pengguna. Dari data rating pengguna, akan diidentifikasi film-film yang mirip dan belum pernah ditonton oleh pengguna untuk direkomendasikan.
 
 Setelah dilakukan training, model dievaluasi dan didapatkan hasil sebagai berikut:
 
@@ -141,24 +153,9 @@ val rmse:  0.2050754725933075
 
 Hasil evaluasi dari train dan val memiliki nilai yang mirip sehingga dapat dikatakan bahwa mesin dapat belajar.
 
+Dengan model yang sudah dilakukan training, model memprediksikan top 10 recommendation dari salah satu pengguna. Model akan memberikan rekomendasi film berdasarkan film-film yang diberi rating tinggi oleh pengguna.
 
-## Evaluation
-Pada sistem rekomentasi ini, metrik yang digunakan adalah RMSE dan precision. RMSE (Root Mean Square Error) menghitung nilai mean dari semua selisih kuadrat antara hasil benar dan hasil prediksi ratings dan kemudian menghitung akar kuadrat dari hasilnya, dapat dituliskan dengan rumus: 
-
-![image](https://user-images.githubusercontent.com/76271668/153878078-492d9902-679c-4a2b-8726-471cca6fe97d.png)
-
-
-Precision merupakan perbandingan antara banyaknya rekomendasi yang relevan dengan banyaknya rekomendasi, dengan rumus: 
-
-![image](https://user-images.githubusercontent.com/76271668/153868680-287ea3c5-f149-4626-92c5-7c1129b05d8f.png)
-
-Hasil Training Model (RMSE)
-
-![image](https://user-images.githubusercontent.com/76271668/153881049-ce83cb67-7062-4319-8e24-9de3ad7d097d.png)
-
-Proses training model cukup smooth dan model sedikit konvergen pada epoch sekitar 20. Dari proses ini, diperoleh nilai error akhir sebesar sekitar 0.19 dan error pada data validasi sebesar 0.20. Nilai tersebut cukup baik untuk sistem rekomendasi.
-
-Hasil Rekomendasi (Precision)
+Hasil Rekomendasi
 ```
 Showing recommendations for users: 260
 ===========================
@@ -185,7 +182,26 @@ Battle of Algiers, The (La battaglia di Algeri) (1966) : Drama|War
 Neon Genesis Evangelion: The End of Evangelion (Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni) (1997) : Action|Animation|Drama|Fantasy|Sci-Fi
 Three Billboards Outside Ebbing, Missouri (2017) : Crime|Drama
 ```
-Pada hasil rekomendasi yang didapatkan terdapat 9 film rekomendasi yang memiliki genres relevan dengan user dan 1 film rekomendasi yang memiliki genres tidak relevan dengan user yaitu film Touch of Evil (1958), maka precision yang didapatkan untuk sistem rekomendasi ini adalah 90%.
+
+Dari hasil rekomendasi, terdapat 10 rekomendasi film yang belum pernah ditonton oleh pengguna. Dari 10 film tersebut, terdapat 9 film rekomendasi yang memiliki genre relevan dengan user dan 1 film rekomendasi yang memiliki genre tidak relevan dengan user yaitu film Touch of Evil (1958). 
+
+## Evaluation
+Pada sistem rekomentasi ini, metrik yang digunakan adalah RMSE dan precision. RMSE (Root Mean Square Error) menghitung nilai mean dari semua selisih kuadrat antara hasil benar dan hasil prediksi ratings dan kemudian menghitung akar kuadrat dari hasilnya, dapat dituliskan dengan rumus: 
+
+![image](https://user-images.githubusercontent.com/76271668/153878078-492d9902-679c-4a2b-8726-471cca6fe97d.png)
+
+
+Precision merupakan perbandingan antara banyaknya rekomendasi yang relevan dengan banyaknya rekomendasi, dengan rumus: 
+
+![image](https://user-images.githubusercontent.com/76271668/153868680-287ea3c5-f149-4626-92c5-7c1129b05d8f.png)
+
+Hasil Training Model (RMSE)
+
+![image](https://user-images.githubusercontent.com/76271668/153881049-ce83cb67-7062-4319-8e24-9de3ad7d097d.png)
+
+Proses training model cukup smooth dan model sedikit konvergen pada epoch sekitar 20. Dari proses ini, diperoleh nilai error akhir sebesar sekitar 0.19 dan error pada data validasi sebesar 0.20. Nilai tersebut cukup baik untuk sistem rekomendasi.
+
+Pada hasil rekomendasi yang didapatkan terdapat 9 film rekomendasi yang memiliki genre relevan dengan user dan 1 film rekomendasi yang memiliki genre tidak relevan dengan user yaitu film Touch of Evil (1958), maka precision yang didapatkan untuk sistem rekomendasi ini adalah 90%.
 
 **---Ini adalah bagian akhir laporan---**
 
