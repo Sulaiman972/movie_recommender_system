@@ -25,7 +25,7 @@ Pada kasus ini, terdapat 2 data, ratings dan movies. Data ratings berisi semua r
 ### Variabel-variabel pada Movie Recommender System Dataset adalah sebagai berikut:
 Untuk memahami data dilakukan tahap univariate exploratory data analysis.
 
-- rating variable
+- rating variabel
   
   File ratings.csv memiliki 100836 entri dan tidak terdapat missing value.
   
@@ -51,7 +51,7 @@ Untuk memahami data dilakukan tahap univariate exploratory data analysis.
   ```  
   
   
-- movies variable
+- movies variabel
   
   File movies.csv memiliki 9742 entri dan tidak terdapat missing value.
 
@@ -76,7 +76,7 @@ Untuk memahami data dilakukan tahap univariate exploratory data analysis.
 
 
 ## Data Preparation
-Pada file movie.csv terdapat 5 judul film yang memiliki variable genres lebih dari 1. Oleh karena itu, perlu dilakukan data preparation pada dataset.
+Pada file movie.csv terdapat 5 judul film yang memiliki variabel genres lebih dari 1. Oleh karena itu, perlu dilakukan data preparation pada dataset.
  - Pembersihan data.
  
    Pada proses pembersihan data, dilakukan penyamaan genres dan penanganan duplikat. Hal ini dilakukan untuk memberikan rekomendasi yang lebih baik.
@@ -103,7 +103,7 @@ Pada file movie.csv terdapat 5 judul film yang memiliki variable genres lebih da
    
      Setelah dilakukan penyamaan genres, pada data ratings, terdapat data duplikat dengan userId dan movieId yang sama, maka diperlukan dari salah satu data untuk di-drop. Setelah duplikat di-drop banyak data berubah menjadi 100832 entri.
         
- - Penyandian fitur.
+ - Encoding fitur.
 
    Variabel userId dan movieId merupakan ID yang dimiliki user dan movie, ID tersebut merupakan susunan dari bilangan. Untuk memudahkan mesin belajar dilakukan penyandian fitur.
    
@@ -140,6 +140,8 @@ Pada file movie.csv terdapat 5 judul film yang memiliki variable genres lebih da
 
 
 ## Modeling
+Pendekatan yang digunakan adalah _Collaborative filtering_ berbasis model deep learning. Model deep learning yang digunakan adalah RecommenderNet dengan langkah-langkah dalam model sebagai berikut: (1) memetakan userId menjadi vektor user, (2) memetakan movieId menjadi vektor movie, (3) menghitung hasil dot product antara vektor user dan vektor movie
+
 Pada kasus ini, dataset yang dimiliki adalah data rating film dari pengguna dan data film. Teknik _collaborative filtering_ dapat diterapkan untuk membuat sistem rekomendasi, untuk kasus ini, karena teknik ini membutuhkan data rating dari pengguna. Dari data rating pengguna, akan diidentifikasi film-film yang mirip dan belum pernah ditonton oleh pengguna untuk direkomendasikan.
 
 Setelah dilakukan training, model dievaluasi dan didapatkan hasil sebagai berikut:
