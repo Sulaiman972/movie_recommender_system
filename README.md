@@ -6,7 +6,9 @@ Situs penyedia film menyediakan berbagai jenis film yang sangat beragam untuk di
 
 Referensi:
 
-Najafi, Safir. "Evaluating Prediction Accuracy for Collaborative Filtering Algorithms in Recommender" Systems. KTH Royal Institute of Technology. Tersedia: [tautan](https://kth.diva-portal.org/smash/get/diva2:927356/FULLTEXT01.pdf)
+Najafi, Safir. "Evaluating Prediction Accuracy for Collaborative Filtering Algorithms in Recommender Systems". 2016. KTH Royal Institute of Technology. Tersedia: [tautan](https://kth.diva-portal.org/smash/get/diva2:927356/FULLTEXT01.pdf).
+
+Banerjee, Siddhartha. "Collaborative Filtering for Movie Recommendations". 2020. Keras. Tersedia: [tautan](https://keras.io/examples/structured_data/collaborative_filtering_movielens/).
 
 ## Business Understanding
 
@@ -140,9 +142,9 @@ Pada file movie.csv terdapat 5 judul film yang memiliki variabel genres lebih da
 
 
 ## Modeling
-Pendekatan yang digunakan adalah _Collaborative filtering_ berbasis model deep learning. Model deep learning yang digunakan adalah RecommenderNet dengan langkah-langkah dalam model sebagai berikut: (1) memetakan userId menjadi vektor user, (2) memetakan movieId menjadi vektor movie, (3) menghitung hasil dot product antara vektor user dan vektor movie
+Pada kasus ini, dataset yang dimiliki adalah data rating film dari pengguna dan data film. Dalam data ratings terdapat rating film dari setiap pengguna. Dataset ini cocok apabila menggunakan pendekatan _Collaborative filtering_ karena data yang dimiliki merupakan pendapat komunitas pengguna dan susunan data sudah sesuai dalam bentuk kolom yang dibutuhkan sehingga tidak diperulakan persiapan data yang rumit. Model membandingkan data rating film antar pengguna untuk mencari hubungan antar tiap rating film setiap pengguna agar model dapat mengidentifikasi film-film yang mirip dan belum pernah ditonton oleh pengguna untuk direkomendasikan.
 
-Pada kasus ini, dataset yang dimiliki adalah data rating film dari pengguna dan data film. Teknik _collaborative filtering_ dapat diterapkan untuk membuat sistem rekomendasi, untuk kasus ini, karena teknik ini membutuhkan data rating dari pengguna. Dari data rating pengguna, akan diidentifikasi film-film yang mirip dan belum pernah ditonton oleh pengguna untuk direkomendasikan.
+Pendekatan yang digunakan adalah _Collaborative filtering_ berbasis model deep learning. Model deep learning yang digunakan adalah RecommenderNet dengan langkah-langkah dalam model sebagai berikut, (1) memetakan userId menjadi "user vector" melalui matriks embedding, (2) memetakan movieId menjadi "movie vector" melalui matriks embedding, (3) menghitung hasil dot product antara "user vector" dan "movie vector", untuk mendapatkan skor pasangan antara user dan movie (rating prediksi), (4) melatih embedding melalui gradient descent menggunakan semua pasangan user-movie. Model ini menggunakan Binary Crossentropy untuk menghitung loss function, Adam (Adaptive Moment Estimation) sebagai optimizer, dan root mean square error (RMSE) sebagai metrics evaluation.
 
 Setelah dilakukan training, model dievaluasi dan didapatkan hasil sebagai berikut:
 
