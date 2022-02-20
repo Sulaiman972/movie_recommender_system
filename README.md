@@ -6,9 +6,9 @@ Situs penyedia film menyediakan berbagai jenis film yang sangat beragam untuk di
 
 Referensi:
 
-Najafi, Safir. "Evaluating Prediction Accuracy for Collaborative Filtering Algorithms in Recommender Systems". 2016. KTH Royal Institute of Technology. Tersedia: [tautan](https://kth.diva-portal.org/smash/get/diva2:927356/FULLTEXT01.pdf).
+Najafi, Safir. ["Evaluating Prediction Accuracy for Collaborative Filtering Algorithms in Recommender Systems"](https://kth.diva-portal.org/smash/get/diva2:927356/FULLTEXT01.pdf). 2016. KTH Royal Institute of Technology.
 
-Banerjee, Siddhartha. "Collaborative Filtering for Movie Recommendations". 2020. Keras. Tersedia: [tautan](https://keras.io/examples/structured_data/collaborative_filtering_movielens/).
+Banerjee, Siddhartha. ["Collaborative Filtering for Movie Recommendations"](https://keras.io/examples/structured_data/collaborative_filtering_movielens/). 2020. Keras.
 
 ## Business Understanding
 
