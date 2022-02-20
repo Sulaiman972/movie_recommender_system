@@ -209,3 +209,4 @@ Pada hasil rekomendasi yang didapatkan terdapat 9 film rekomendasi yang memiliki
 
 **---Ini adalah bagian akhir laporan---**
 
+Laporan ini disusun untuk memenuhi tugas proyek akhir untuk kelas Machine Learning Terapan di Dicoding Indonesia.
